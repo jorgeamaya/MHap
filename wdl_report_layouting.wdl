@@ -135,7 +135,7 @@ task report_layouting_process {
 		mkdir Reference
 		mkdir Results
 		#cp ~{sep = ' ' cigar_files} cigar_dir
-		gsutil -m cp -r ~{sep = ' ' cigar_files}" cigar_dir/
+		gsutil -m cp -r ~{sep = ' ' cigar_files} cigar_dir/
 		cp ~{ref_gff} Reference/.
 		cp ~{ref_fasta} Reference/.
 		cp ~{reference_alleles} Reference/.
