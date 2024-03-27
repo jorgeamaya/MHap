@@ -129,11 +129,13 @@ task report_layouting_process {
 	}
 	
 	command <<<
-		echo "Processing files: ~{sep = ' ' cigar_files}"
+		set -euxo pipefail
+		#echo "Processing files: ~{sep = ' ' cigar_files}"
 		mkdir cigar_dir
 		mkdir Reference
 		mkdir Results
-		cp ~{sep = ' ' cigar_files} cigar_dir
+		#cp ~{sep = ' ' cigar_files} cigar_dir
+		gsutil -m cp -r ~{sep = ' ' cigar_files}" cigar_dir/
 		cp ~{ref_gff} Reference/.
 		cp ~{ref_fasta} Reference/.
 		cp ~{reference_alleles} Reference/.
